@@ -14,21 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#from __future__ import print_function
-#import contextlib
-#import errno
-#import filecmp
-#import glob
 import os
-#import random
 import re
-#import shutil
-#import stat
 import subprocess
-#import sys
-#import tempfile
-#import time
-#import traceback
 
 DBG = False
 VDBG = False

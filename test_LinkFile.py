@@ -17,6 +17,7 @@
 import os
 import re
 import subprocess
+import argparse
 
 DBG = False
 VDBG = False
@@ -120,8 +121,13 @@ def check_dir(directory, expectedEntries):
 
   return result == 0
 
-root="/Users/wink/prgs/repo/helloworld-test-linkfiles"
+# Get the root directory argument
+parser = argparse.ArgumentParser()
+parser.add_argument("dir", help="specify the directory of 'helloworld-test-linkfiles'")
+args = parser.parse_args()
+root = args.dir
 
+# Setup the testList of directories we're checking
 testList = (
   (root, rootLinks),
   (os.path.join(root, "configs"), configsLinks),
@@ -129,13 +135,17 @@ testList = (
   (os.path.join(root, "srcs"), srcsLinks)
   )
 
+# Loop through testList checking
 errors = 0
 for directory, expectedEntries in testList:
   result = check_dir(directory, expectedEntries)
   if not result:
     errors += 1
 
+# Print a result
 if errors == 0:
   print("Success")
+elif errors == 1:
+  print("1 error")
 else:
   print("%s errors" % errors)

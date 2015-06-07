@@ -28,6 +28,7 @@ rootLinks = {
   "Makefile":".build/Makefile",
   "mstr-configs":"apps/helloworld/master-configs",
   "newapp.sh":".build/newapp.sh",
+  "test_LinkFile.py":"tools/test/test_LinkFile.py",
   }
 
 configsLinks = {
